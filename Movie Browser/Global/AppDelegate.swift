@@ -12,6 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    let apiKey = "8b73bac921b846f18c66df6583d5e085" //v3 Auth
+    let url = "https://api.themoviedb.org/3/movie/550?api_key=8b73bac921b846f18c66df6583d5e085" //Example url
 }
 

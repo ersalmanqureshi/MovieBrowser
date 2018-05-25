@@ -34,14 +34,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5C635A1A20B821E100229A57 /* MDSAT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDSAT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C635A1A20B821E100229A57 /* Movie Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C635A2220B821E100229A57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C635A2720B821E100229A57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C635A2920B821E100229A57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C635A2E20B821E200229A57 /* MDSATTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MDSATTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C635A2E20B821E200229A57 /* Movie BrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Movie BrowserTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C635A3220B821E200229A57 /* MDSATTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDSATTests.swift; sourceTree = "<group>"; };
 		5C635A3420B821E200229A57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C635A3920B821E200229A57 /* MDSATUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MDSATUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C635A3920B821E200229A57 /* Movie BrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Movie BrowserUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C635A3D20B821E200229A57 /* MDSATUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDSATUITests.swift; sourceTree = "<group>"; };
 		5C635A3F20B821E200229A57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C635A5620B8243A00229A57 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,9 +77,9 @@
 		5C635A1120B821E100229A57 = {
 			isa = PBXGroup;
 			children = (
-				5C635A1C20B821E100229A57 /* MDSAT */,
-				5C635A3120B821E200229A57 /* MDSATTests */,
-				5C635A3C20B821E200229A57 /* MDSATUITests */,
+				5C635A1C20B821E100229A57 /* Movie Browser */,
+				5C635A3120B821E200229A57 /* MovieBrowserTests */,
+				5C635A3C20B821E200229A57 /* MovieBrowserUITests */,
 				5C635A1B20B821E100229A57 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,14 +87,14 @@
 		5C635A1B20B821E100229A57 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5C635A1A20B821E100229A57 /* MDSAT.app */,
-				5C635A2E20B821E200229A57 /* MDSATTests.xctest */,
-				5C635A3920B821E200229A57 /* MDSATUITests.xctest */,
+				5C635A1A20B821E100229A57 /* Movie Browser.app */,
+				5C635A2E20B821E200229A57 /* Movie BrowserTests.xctest */,
+				5C635A3920B821E200229A57 /* Movie BrowserUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5C635A1C20B821E100229A57 /* MDSAT */ = {
+		5C635A1C20B821E100229A57 /* Movie Browser */ = {
 			isa = PBXGroup;
 			children = (
 				5C635A6820B82FCA00229A57 /* Helpers */,
@@ -107,25 +107,25 @@
 				5C635A5520B8243A00229A57 /* Global */,
 				5C635A2920B821E100229A57 /* Info.plist */,
 			);
-			path = MDSAT;
+			path = "Movie Browser";
 			sourceTree = "<group>";
 		};
-		5C635A3120B821E200229A57 /* MDSATTests */ = {
+		5C635A3120B821E200229A57 /* MovieBrowserTests */ = {
 			isa = PBXGroup;
 			children = (
 				5C635A3220B821E200229A57 /* MDSATTests.swift */,
 				5C635A3420B821E200229A57 /* Info.plist */,
 			);
-			path = MDSATTests;
+			path = MovieBrowserTests;
 			sourceTree = "<group>";
 		};
-		5C635A3C20B821E200229A57 /* MDSATUITests */ = {
+		5C635A3C20B821E200229A57 /* MovieBrowserUITests */ = {
 			isa = PBXGroup;
 			children = (
 				5C635A3D20B821E200229A57 /* MDSATUITests.swift */,
 				5C635A3F20B821E200229A57 /* Info.plist */,
 			);
-			path = MDSATUITests;
+			path = MovieBrowserUITests;
 			sourceTree = "<group>";
 		};
 		5C635A5520B8243A00229A57 /* Global */ = {
@@ -192,9 +192,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5C635A1920B821E100229A57 /* MDSAT */ = {
+		5C635A1920B821E100229A57 /* Movie Browser */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C635A4220B821E200229A57 /* Build configuration list for PBXNativeTarget "MDSAT" */;
+			buildConfigurationList = 5C635A4220B821E200229A57 /* Build configuration list for PBXNativeTarget "Movie Browser" */;
 			buildPhases = (
 				5C635A1620B821E100229A57 /* Sources */,
 				5C635A1720B821E100229A57 /* Frameworks */,
@@ -204,14 +204,14 @@
 			);
 			dependencies = (
 			);
-			name = MDSAT;
+			name = "Movie Browser";
 			productName = MDSAT;
-			productReference = 5C635A1A20B821E100229A57 /* MDSAT.app */;
+			productReference = 5C635A1A20B821E100229A57 /* Movie Browser.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5C635A2D20B821E200229A57 /* MDSATTests */ = {
+		5C635A2D20B821E200229A57 /* Movie BrowserTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C635A4520B821E200229A57 /* Build configuration list for PBXNativeTarget "MDSATTests" */;
+			buildConfigurationList = 5C635A4520B821E200229A57 /* Build configuration list for PBXNativeTarget "Movie BrowserTests" */;
 			buildPhases = (
 				5C635A2A20B821E200229A57 /* Sources */,
 				5C635A2B20B821E200229A57 /* Frameworks */,
@@ -222,14 +222,14 @@
 			dependencies = (
 				5C635A3020B821E200229A57 /* PBXTargetDependency */,
 			);
-			name = MDSATTests;
+			name = "Movie BrowserTests";
 			productName = MDSATTests;
-			productReference = 5C635A2E20B821E200229A57 /* MDSATTests.xctest */;
+			productReference = 5C635A2E20B821E200229A57 /* Movie BrowserTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5C635A3820B821E200229A57 /* MDSATUITests */ = {
+		5C635A3820B821E200229A57 /* Movie BrowserUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C635A4820B821E200229A57 /* Build configuration list for PBXNativeTarget "MDSATUITests" */;
+			buildConfigurationList = 5C635A4820B821E200229A57 /* Build configuration list for PBXNativeTarget "Movie BrowserUITests" */;
 			buildPhases = (
 				5C635A3520B821E200229A57 /* Sources */,
 				5C635A3620B821E200229A57 /* Frameworks */,
@@ -240,9 +240,9 @@
 			dependencies = (
 				5C635A3B20B821E200229A57 /* PBXTargetDependency */,
 			);
-			name = MDSATUITests;
+			name = "Movie BrowserUITests";
 			productName = MDSATUITests;
-			productReference = 5C635A3920B821E200229A57 /* MDSATUITests.xctest */;
+			productReference = 5C635A3920B821E200229A57 /* Movie BrowserUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -271,7 +271,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5C635A1520B821E100229A57 /* Build configuration list for PBXProject "MDSAT" */;
+			buildConfigurationList = 5C635A1520B821E100229A57 /* Build configuration list for PBXProject "Movie Browser" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -284,9 +284,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5C635A1920B821E100229A57 /* MDSAT */,
-				5C635A2D20B821E200229A57 /* MDSATTests */,
-				5C635A3820B821E200229A57 /* MDSATUITests */,
+				5C635A1920B821E100229A57 /* Movie Browser */,
+				5C635A2D20B821E200229A57 /* Movie BrowserTests */,
+				5C635A3820B821E200229A57 /* Movie BrowserUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -349,12 +349,12 @@
 /* Begin PBXTargetDependency section */
 		5C635A3020B821E200229A57 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5C635A1920B821E100229A57 /* MDSAT */;
+			target = 5C635A1920B821E100229A57 /* Movie Browser */;
 			targetProxy = 5C635A2F20B821E200229A57 /* PBXContainerItemProxy */;
 		};
 		5C635A3B20B821E200229A57 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5C635A1920B821E100229A57 /* MDSAT */;
+			target = 5C635A1920B821E100229A57 /* Movie Browser */;
 			targetProxy = 5C635A3A20B821E200229A57 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -427,9 +427,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Movie Browser";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "Movie Browser";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -478,8 +480,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Movie Browser";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "Movie Browser";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -492,10 +496,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPXZYNJ6XC;
-				INFOPLIST_FILE = MDSAT/Info.plist;
+				INFOPLIST_FILE = "Movie Browser/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tech.iSalman.MDSAT;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.iSalman.MovieBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -508,10 +512,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPXZYNJ6XC;
-				INFOPLIST_FILE = MDSAT/Info.plist;
+				INFOPLIST_FILE = "Movie Browser/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tech.iSalman.MDSAT;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.iSalman.MovieBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -531,7 +535,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MDSAT.app/MDSAT";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movie Browser.app/Movie Browser";
 			};
 			name = Debug;
 		};
@@ -548,7 +552,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MDSAT.app/MDSAT";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movie Browser.app/Movie Browser";
 			};
 			name = Release;
 		};
@@ -587,7 +591,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5C635A1520B821E100229A57 /* Build configuration list for PBXProject "MDSAT" */ = {
+		5C635A1520B821E100229A57 /* Build configuration list for PBXProject "Movie Browser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C635A4020B821E200229A57 /* Debug */,
@@ -596,7 +600,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C635A4220B821E200229A57 /* Build configuration list for PBXNativeTarget "MDSAT" */ = {
+		5C635A4220B821E200229A57 /* Build configuration list for PBXNativeTarget "Movie Browser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C635A4320B821E200229A57 /* Debug */,
@@ -605,7 +609,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C635A4520B821E200229A57 /* Build configuration list for PBXNativeTarget "MDSATTests" */ = {
+		5C635A4520B821E200229A57 /* Build configuration list for PBXNativeTarget "Movie BrowserTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C635A4620B821E200229A57 /* Debug */,
@@ -614,7 +618,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C635A4820B821E200229A57 /* Build configuration list for PBXNativeTarget "MDSATUITests" */ = {
+		5C635A4820B821E200229A57 /* Build configuration list for PBXNativeTarget "Movie BrowserUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C635A4920B821E200229A57 /* Debug */,

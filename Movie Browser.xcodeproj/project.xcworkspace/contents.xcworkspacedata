@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MDSAT.xcodeproj">
+      location = "self:/Users/salmanqureshi/Desktop/Heady/MDSAT/MDSAT/Movie Browser.xcodeproj">
    </FileRef>
 </Workspace>
