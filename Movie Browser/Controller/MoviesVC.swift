@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  MDSAT
+//  Movie Browser
 //
 //  Created by Salman Qureshi on 5/25/18.
 //  Copyright © 2018 Salman Qureshi. All rights reserved.
@@ -14,14 +14,12 @@ class MoviesVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var browserCollectionView: UICollectionView!
     
-    var movies: [Movie] = []
+    var movies: [Movie]? = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupCollectionView()
         fetchMovies()
-    
     }
     
     func fetchMovies() {
@@ -44,7 +42,7 @@ class MoviesVC: UIViewController {
 extension MoviesVC: UICollectionViewDataSource {
   
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
+        return movies?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -52,9 +50,7 @@ extension MoviesVC: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        let movie = movies[indexPath.row]
-        cell.movieTitle.text = movie.title
-        
+        cell.movie = movies?[indexPath.row]
         return cell
     }
 }
