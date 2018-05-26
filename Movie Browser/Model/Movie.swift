@@ -9,14 +9,16 @@
 import Foundation
 
 struct Movie: Decodable {
-    var id: Int!
-    var originalTitle: String
-    var posterImageThumbnail: String?
-    var overview: String
+    let id:Int!
+    let posterPath: String
+    var videoPath: String?
+    let backdrop: String
+    let title: String
+    var releaseDate: String
     var rating: Double
-    var releaseYear: String
+    let overview: String
     
     private enum CodingKeys: String, CodingKey {
-        case id, originalTitle, releaseYear = "release_date", rating = "vote_average", posterImageThumbnail = "poster_path", overview
+        case id, posterPath = "poster_path", videoPath, backdrop = "backdrop_path", title, releaseDate = "release_date", rating = "vote_average", overview
     }
 }

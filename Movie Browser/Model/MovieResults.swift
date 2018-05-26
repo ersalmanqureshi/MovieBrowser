@@ -9,12 +9,23 @@
 import Foundation
 
 struct MovieResults: Decodable {
-    var page: Int
-    var numberOfResults: Int
-    var numberOfPages: Int
-    var movies: [Movie]
+    let page: Int
+    let numResults: Int
+    let numPages: Int
+    let movies: [Movie]
     
     private enum CodingKeys: String, CodingKey {
-        case page, numberOfResults = "total_results", numberOfPages = "total_pages", movies = "results"
+        case page, numResults = "total_results", numPages = "total_pages", movies  = "results"
     }
+}
+
+struct VideoResults: Decodable {
+    let details: [VideoKey]
+    private enum CodingKeys: String, CodingKey {
+        case details = "results"
+    }
+}
+
+struct VideoKey: Decodable {
+    let key: String
 }
