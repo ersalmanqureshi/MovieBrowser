@@ -10,6 +10,10 @@ import UIKit
 
 class MoviesVC: UIViewController {
 
+    //MARK: Outlet
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var browserCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         API.getMovies(page: 1) { movies in

@@ -55,6 +55,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Movie Browser" id="UX5-0j-hOh"/>
                     <connections>
+                        <outlet property="browserCollectionView" destination="UEA-3k-8GF" id="cp0-ck-kvG"/>
+                        <outlet property="searchBar" destination="F5q-gc-f3I" id="h3G-oF-jk3"/>
                         <outlet property="searchDisplayController" destination="Pr8-vl-M1D" id="O6O-Fu-jIJ"/>
                     </connections>
                 </viewController>
