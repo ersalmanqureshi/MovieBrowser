@@ -7,6 +7,7 @@ target 'Movie Browser' do
 
   # Pods for Movie Browser
     pod 'Moya', '~> 9.0'
+    pod 'Kingfisher', '~> 4.0'
 
   target 'Movie BrowserTests' do
     inherit! :search_paths

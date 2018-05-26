@@ -14,14 +14,20 @@ class MoviesVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var browserCollectionView: UICollectionView!
     
+    var movies: [Movie] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCollectionView()
-        
-        
-        API.getMovies(page: 1) { movies in
-            
+        fetchMovies()
+    
+    }
+    
+    func fetchMovies() {
+        API.getMovies(page: 1) { results in
+            self.movies = results
+            self.browserCollectionView.reloadData()
         }
     }
     
@@ -38,13 +44,16 @@ class MoviesVC: UIViewController {
 extension MoviesVC: UICollectionViewDataSource {
   
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesBrowserCell.reuseIdentifier, for: indexPath) as? MoviesBrowserCell else {
             return UICollectionViewCell()
         }
+        
+        let movie = movies[indexPath.row]
+        cell.movieTitle.text = movie.title
         
         return cell
     }
