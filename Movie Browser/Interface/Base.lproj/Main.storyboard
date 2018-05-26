@@ -25,19 +25,43 @@
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QtD-DH-dd7">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="175" height="181"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rDR-Rx-Khu">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MoviesBrowserCell" id="rDR-Rx-Khu" customClass="MoviesBrowserCell" customModule="Movie_Browser" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="181"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="175" height="181"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0AY-1B-AgK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="181"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doi-N2-Hrb">
+                                                    <rect key="frame" x="0.0" y="156" width="175" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="doi-N2-Hrb" firstAttribute="leading" secondItem="rDR-Rx-Khu" secondAttribute="leading" id="Ah3-6h-Jwx"/>
+                                            <constraint firstAttribute="trailing" secondItem="doi-N2-Hrb" secondAttribute="trailing" id="DSs-EE-W33"/>
+                                            <constraint firstAttribute="bottom" secondItem="doi-N2-Hrb" secondAttribute="bottom" constant="8" id="T66-qC-SnB"/>
+                                            <constraint firstItem="0AY-1B-AgK" firstAttribute="top" secondItem="rDR-Rx-Khu" secondAttribute="top" id="ePO-up-cRx"/>
+                                            <constraint firstAttribute="trailing" secondItem="0AY-1B-AgK" secondAttribute="trailing" id="jH8-el-6ky"/>
+                                            <constraint firstItem="0AY-1B-AgK" firstAttribute="leading" secondItem="rDR-Rx-Khu" secondAttribute="leading" id="kFF-ry-Olt"/>
+                                            <constraint firstAttribute="bottom" secondItem="0AY-1B-AgK" secondAttribute="bottom" id="l8B-Vd-9pU"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="moviePoster" destination="0AY-1B-AgK" id="l0i-fO-7Jh"/>
+                                            <outlet property="movieTitle" destination="doi-N2-Hrb" id="2ki-Ih-ADp"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
