@@ -27,7 +27,8 @@ class MoviesBrowserCell: UICollectionViewCell {
         
         let resource = ImageResource(downloadURL: url, cacheKey: movie.title)
         
-        moviePoster.kf.setImage(with: resource, placeholder: UIImage(named: "avatar"), options: [.transition(.fade(0.3))])
+        moviePoster.kf.indicatorType = .activity
+        moviePoster.kf.setImage(with: resource, options: [.transition(.fade(0.3))])
         
         movieTitle.text = movie.title
     }
