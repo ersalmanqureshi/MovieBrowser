@@ -16,6 +16,8 @@ class MoviesVC: UIViewController {
     
     var movies: [Movie]? = []
     
+    let segueIdentifier = "MovieBrowserToDetailSegue"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
@@ -31,11 +33,19 @@ class MoviesVC: UIViewController {
     
     func setupCollectionView() {
         browserCollectionView.dataSource = self
+        browserCollectionView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueIdentifier {
+            let destinationVC = segue.destination as! MoviesDetailVC
+            destinationVC.movie = sender as! Movie
+        }
     }
 }
 
@@ -52,6 +62,13 @@ extension MoviesVC: UICollectionViewDataSource {
         
         cell.movie = movies?[indexPath.row]
         return cell
+    }
+}
+
+extension MoviesVC:  UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = movies![indexPath.row]
+        performSegue(withIdentifier: segueIdentifier, sender: movie)
     }
 }
 

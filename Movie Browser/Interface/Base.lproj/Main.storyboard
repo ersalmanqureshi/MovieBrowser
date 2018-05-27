@@ -98,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="476" y="132.68365817091455"/>
         </scene>
-        <!--View Controller-->
+        <!--Movies DetailVC-->
         <scene sceneID="Zyw-kI-tzA">
             <objects>
-                <viewController id="N8y-eA-CMj" sceneMemberID="viewController">
+                <viewController id="N8y-eA-CMj" customClass="MoviesDetailVC" customModule="Movie_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3nm-bw-3Le">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,6 +154,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uJL-fO-C1t"/>
                     </view>
+                    <connections>
+                        <outlet property="movieOverview" destination="AdL-pD-87t" id="9aQ-FD-RCt"/>
+                        <outlet property="moviePosterThumbnail" destination="Ytq-0A-K8X" id="M6v-uQ-58W"/>
+                        <outlet property="movieRating" destination="gzs-j4-qQ7" id="UVV-lF-B3d"/>
+                        <outlet property="movieReleasedate" destination="YSo-EN-p8W" id="rTY-Qu-dt5"/>
+                        <outlet property="movieTitle" destination="yeG-VX-Zdq" id="Uog-MR-GPO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgc-Ud-1I5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
