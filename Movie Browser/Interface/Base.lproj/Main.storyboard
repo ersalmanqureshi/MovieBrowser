@@ -48,9 +48,9 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGK-jX-YDO">
                                                     <rect key="frame" x="0.0" y="180" width="175" height="30"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doi-N2-Hrb">
-                                                            <rect key="frame" x="42.5" y="5.5" width="91" height="19.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doi-N2-Hrb">
+                                                            <rect key="frame" x="8" y="7" width="159" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -58,8 +58,10 @@
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="2xm-i6-VXw"/>
+                                                        <constraint firstItem="doi-N2-Hrb" firstAttribute="leading" secondItem="uGK-jX-YDO" secondAttribute="leading" constant="8" id="6Sd-i1-sFd"/>
                                                         <constraint firstItem="doi-N2-Hrb" firstAttribute="centerY" secondItem="uGK-jX-YDO" secondAttribute="centerY" id="bvy-Pt-lsm"/>
                                                         <constraint firstItem="doi-N2-Hrb" firstAttribute="centerX" secondItem="uGK-jX-YDO" secondAttribute="centerX" id="mDc-6c-GjU"/>
+                                                        <constraint firstAttribute="trailing" secondItem="doi-N2-Hrb" secondAttribute="trailing" constant="8" id="rNI-7B-6JT"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -93,7 +95,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movie Browser" id="UX5-0j-hOh">
-                        <barButtonItem key="rightBarButtonItem" image="settingstune" style="plain" id="Qzw-kM-irP"/>
+                        <barButtonItem key="rightBarButtonItem" image="settingstune" style="plain" id="Qzw-kM-irP">
+                            <connections>
+                                <action selector="sortBy:" destination="BYZ-38-t0r" id="c1i-SO-Emf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="browserCollectionView" destination="UEA-3k-8GF" id="cp0-ck-kvG"/>

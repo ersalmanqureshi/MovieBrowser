@@ -34,6 +34,20 @@ class MoviesVC: UIViewController {
         }
     }
     
+    func fetchMostPopularMovies() {
+        API.getPopularMovies(page: 1) { results in
+            self.movies = results
+            self.browserCollectionView.reloadData()
+        }
+    }
+    
+    func fetchTopRated() {
+        API.getTopRatedMovies(page: 1) { results in
+            self.movies = results
+            self.browserCollectionView.reloadData()
+        }
+    }
+    
     func setupSearchBar() {
         searchBar.placeholder = "Search Movies..."
         searchBar.delegate = self
@@ -76,6 +90,29 @@ class MoviesVC: UIViewController {
         activityIndicator.color = UIColor.gray
         browserCollectionView.addSubview(activityIndicator)
     }
+    
+    @IBAction func sortBy(_ sender: UIBarButtonItem) {
+        
+        let alert = UIAlertController(title: "Sort By", message: "", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Most Popular", style: .default , handler:{ (UIAlertAction)in
+            self.fetchMostPopularMovies()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Top Rated", style: .default , handler:{ (UIAlertAction)in
+            self.fetchTopRated()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
+            print("User click Dismiss button")
+        }))
+        
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+        
+    }
+    
 }
 
 extension MoviesVC: UISearchBarDelegate {

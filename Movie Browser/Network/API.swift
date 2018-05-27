@@ -11,11 +11,28 @@ import Moya
 
 class API {
     static let apiKey = "8b73bac921b846f18c66df6583d5e085"
-    static let imageBaseStr: String = "https://image.tmdb.org/t/p/"
+    static let imageBaseStr = "https://image.tmdb.org/t/p/"
+    static let baseUrlStr = "https://api.themoviedb.org/3/"
     static let provider = MoyaProvider<MovieAPI>()
     
     static func getMovies(page: Int, completion: @escaping (([Movie]) -> ())) {
         provider.request(.nowPlaying(page: page)) { result in
+            switch result {
+            case let .success(response):
+                do {
+                    let results = try JSONDecoder().decode(MovieResults.self, from: response.data)
+                    completion(results.movies)
+                } catch let err{
+                    print(err)
+                }
+            case let .failure(error):
+                print(error)
+            }
+        }
+    }
+    
+    static func getTopRatedMovies(page: Int, completion: @escaping (([Movie]) -> ())) {
+        provider.request(.topRated(page: page)) { result in
             switch result {
             case let .success(response):
                 do {

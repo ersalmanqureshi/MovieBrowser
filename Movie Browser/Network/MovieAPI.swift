@@ -13,6 +13,7 @@ enum MovieAPI {
     case mostPopular(page: Int)
     case nowPlaying(page: Int)
     case search(text: String)
+    case topRated(page: Int)
 }
 
 extension MovieAPI: TargetType {
@@ -25,7 +26,7 @@ extension MovieAPI: TargetType {
     }
     
     var baseURL: URL {
-        guard let url = URL(string: "https://api.themoviedb.org/3/") else {
+        guard let url = URL(string: API.baseUrlStr) else {
             fatalError("url not configured")
         }
         return url
@@ -39,6 +40,8 @@ extension MovieAPI: TargetType {
             return "movie/now_playing"
         case .search:
             return "search/movie"
+        case .topRated:
+            return "movie/top_rated"
         }
     }
     
@@ -48,16 +51,16 @@ extension MovieAPI: TargetType {
     
     var parameterEncoding: ParameterEncoding {
         switch self {
-        case .mostPopular, .nowPlaying, .search:
+        case .mostPopular, .nowPlaying, .search, .topRated:
             return URLEncoding.queryString
         }
     }
     
     var task: Task {
         switch self {
-        case .mostPopular (let page), .nowPlaying (let page):
+        case .mostPopular (let page), .nowPlaying (let page), .topRated (let page):
             return .requestParameters(parameters: ["page": page, "api_key": API.apiKey], encoding: URLEncoding.queryString)
-        
+            
         case .search (let query):
             return .requestParameters(parameters: ["query": query, "api_key": API.apiKey], encoding: URLEncoding.queryString)
         }
@@ -65,7 +68,7 @@ extension MovieAPI: TargetType {
     
     var parameters: [String : Any]? {
         switch self {
-        case .mostPopular(let page), .nowPlaying(let page):
+        case .mostPopular(let page), .nowPlaying(let page), .topRated (let page):
             return ["page": page, "api_key=": API.apiKey]
         case .search(let query):
             return ["query": query, "api_key=": API.apiKey]
