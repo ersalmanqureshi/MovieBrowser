@@ -18,6 +18,8 @@ class MoviesVC: UIViewController {
     
     let segueIdentifier = "MovieBrowserToDetailSegue"
     
+      let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchBar()
@@ -33,6 +35,7 @@ class MoviesVC: UIViewController {
     }
     
     func setupSearchBar() {
+        searchBar.placeholder = "Search Movies..."
         searchBar.delegate = self
     }
     
@@ -52,11 +55,32 @@ class MoviesVC: UIViewController {
             destinationVC.movie = sender as! Movie
         }
     }
+    
+    func moviesOnSearch(_ search: String){
+        
+        activityIndicator.startAnimating()
+        
+        API.searchMovies(text: search) { response in
+            
+            DispatchQueue.main.async{
+                self.movies = response
+                self.activityIndicator.stopAnimating()
+                self.browserCollectionView.reloadData()
+            }
+        }
+    }
+    
+    func setupActivityIndicator(){
+        // set up activity indicator
+        activityIndicator.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.size.height/2)
+        activityIndicator.color = UIColor.gray
+        browserCollectionView.addSubview(activityIndicator)
+    }
 }
 
 extension MoviesVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-       
+       moviesOnSearch(searchText)
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -94,7 +118,7 @@ extension MoviesVC:  UICollectionViewDelegate, UICollectionViewDelegateFlowLayou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let dimen = view.frame.width / 2
-        let knowHeight: CGFloat = view.frame.width / 2 + 30
+        let knowHeight: CGFloat = view.frame.width / 2 * 1.2
         return CGSize(width: dimen , height: knowHeight)
     }
     
