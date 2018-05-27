@@ -65,10 +65,24 @@ extension MoviesVC: UICollectionViewDataSource {
     }
 }
 
-extension MoviesVC:  UICollectionViewDelegate {
+extension MoviesVC:  UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let movie = movies![indexPath.row]
         performSegue(withIdentifier: segueIdentifier, sender: movie)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let dimen = view.frame.width / 2
+        let knowHeight: CGFloat = view.frame.width / 2 + 30
+        return CGSize(width: dimen , height: knowHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }
 

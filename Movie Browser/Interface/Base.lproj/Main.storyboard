@@ -78,7 +78,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Movie Browser" id="UX5-0j-hOh"/>
+                    <navigationItem key="navigationItem" title="Movie Browser" id="UX5-0j-hOh">
+                        <barButtonItem key="rightBarButtonItem" image="settingstune" style="plain" id="Qzw-kM-irP"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="browserCollectionView" destination="UEA-3k-8GF" id="cp0-ck-kvG"/>
                         <outlet property="searchBar" destination="F5q-gc-f3I" id="h3G-oF-jk3"/>
@@ -198,4 +200,7 @@
             <point key="canvasLocation" x="-338" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settingstune" width="16" height="16"/>
+    </resources>
 </document>
