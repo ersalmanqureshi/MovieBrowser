@@ -21,6 +21,9 @@ class MoviesDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = movie.title
+        
         ImageCache.default.retrieveImage(forKey: movie.title, options: nil) {
             image, cacheType in
             if let image = image {
@@ -33,8 +36,10 @@ class MoviesDetailVC: UIViewController {
         }//        moviePosterThumbnail.kf.setImage(with: url, options: [.onlyFromCache])
         movieTitle.text = movie.title
         movieOverview.text = movie.overview
-        movieRating.text = "Rating: " + String(ceil(movie.rating / 2))
+        movieRating.text = "Rating: " + String(ceil(Double(movie.rating)))
         movieReleasedate.text = "Released Date: \(movie.releaseDate)"
+        
+       
     }
 
     override func didReceiveMemoryWarning() {

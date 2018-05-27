@@ -20,6 +20,7 @@ class MoviesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSearchBar()
         setupCollectionView()
         fetchMovies()
     }
@@ -29,6 +30,10 @@ class MoviesVC: UIViewController {
             self.movies = results
             self.browserCollectionView.reloadData()
         }
+    }
+    
+    func setupSearchBar() {
+        searchBar.delegate = self
     }
     
     func setupCollectionView() {
@@ -46,6 +51,22 @@ class MoviesVC: UIViewController {
             let destinationVC = segue.destination as! MoviesDetailVC
             destinationVC.movie = sender as! Movie
         }
+    }
+}
+
+extension MoviesVC: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+       
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
     }
 }
 

@@ -11,7 +11,8 @@ import Moya
 
 enum MovieAPI {
     case mostPopular(page: Int)
-    case highestRated(page: Int)
+    case nowPlaying(page: Int)
+    case search(text: String)
 }
 
 extension MovieAPI: TargetType {
@@ -22,10 +23,9 @@ extension MovieAPI: TargetType {
     var sampleData: Data {
         return Data()
     }
-
     
     var baseURL: URL {
-        guard let url = URL(string: "https://api.themoviedb.org/3/movie/") else {
+        guard let url = URL(string: "https://api.themoviedb.org/3/") else {
             fatalError("url not configured")
         }
         return url
@@ -34,9 +34,11 @@ extension MovieAPI: TargetType {
     var path: String {
         switch self {
         case .mostPopular:
-            return "popular"
-        case .highestRated:
-            return "now_playing"
+            return "movie/popular"
+        case .nowPlaying:
+            return "movie/now_playing"
+        case .search:
+            return "search/movie"
         }
     }
     
@@ -46,25 +48,28 @@ extension MovieAPI: TargetType {
     
     var parameterEncoding: ParameterEncoding {
         switch self {
-        case .mostPopular, .highestRated:
+        case .mostPopular, .nowPlaying, .search:
             return URLEncoding.queryString
         }
     }
     
     var task: Task {
         switch self {
-        case .mostPopular (let page), .highestRated (let page):
+        case .mostPopular (let page), .nowPlaying (let page):
             return .requestParameters(parameters: ["page": page, "api_key": API.apiKey], encoding: URLEncoding.queryString)
+        
+        case .search (let query):
+            return .requestParameters(parameters: ["query": query, "api_key": API.apiKey], encoding: URLEncoding.queryString)
         }
     }
     
     var parameters: [String : Any]? {
         switch self {
-        case .mostPopular(let page), .highestRated(let page):
+        case .mostPopular(let page), .nowPlaying(let page):
             return ["page": page, "api_key=": API.apiKey]
+        case .search(let query):
+            return ["query": query, "api_key=": API.apiKey]
         }
     }
-    
-    
 }
 

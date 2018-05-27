@@ -23,7 +23,7 @@ class MoviesBrowserCell: UICollectionViewCell {
     
     func updateUI() {
 
-        guard let movie = movie, let url = URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath)") else { return }
+        guard let movie = movie, let url = URL(string: "\(API.imageBaseStr)w500\(movie.posterPath)") else { return }
         
         let resource = ImageResource(downloadURL: url, cacheKey: movie.title)
         
