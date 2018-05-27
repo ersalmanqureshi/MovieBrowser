@@ -18,7 +18,12 @@ class MoviesVC: UIViewController {
     
     let segueIdentifier = "MovieBrowserToDetailSegue"
     
-      let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+      let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+    
+    var page = 1
+    var reachedEndOfItems = false
+    
+    var selection = "now_playing"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,23 +33,84 @@ class MoviesVC: UIViewController {
     }
     
     func fetchMovies() {
-        API.getMovies(page: 1) { results in
-            self.movies = results
-            self.browserCollectionView.reloadData()
+        
+        guard !self.reachedEndOfItems else {
+            return
+        }
+        
+        activityIndicator.startAnimating()
+       
+        API.getMovies(page: page) { results in
+            
+            DispatchQueue.main.async {
+                self.movies?.append(contentsOf: results)
+                self.activityIndicator.stopAnimating()
+                self.selection = "now_playing"
+                // check if this was the last of the data
+                if self.movies!.count < 20 {
+                    self.reachedEndOfItems = true
+                    print("reached end of data. Batch count: \(self.movies!.count)")
+                }
+                
+                // add the page for the next data query
+                self.page += 1
+                
+                self.browserCollectionView.reloadData()
+            }
         }
     }
     
     func fetchMostPopularMovies() {
-        API.getPopularMovies(page: 1) { results in
-            self.movies = results
-            self.browserCollectionView.reloadData()
+        
+        guard !self.reachedEndOfItems else {
+            return
+        }
+        
+        activityIndicator.startAnimating()
+        
+        API.getPopularMovies(page: page) { results in
+            DispatchQueue.main.async {
+                self.movies?.append(contentsOf: results)
+                self.activityIndicator.stopAnimating()
+                self.selection = "popular"
+                // check if this was the last of the data
+                if self.movies!.count < 20 {
+                    self.reachedEndOfItems = true
+                    print("reached end of data. Batch count: \(self.movies!.count)")
+                }
+                
+                // add the page for the next data query
+                self.page += 1
+                
+                self.browserCollectionView.reloadData()
+            }
         }
     }
     
     func fetchTopRated() {
-        API.getTopRatedMovies(page: 1) { results in
-            self.movies = results
-            self.browserCollectionView.reloadData()
+        
+        guard !self.reachedEndOfItems else {
+            return
+        }
+        
+        activityIndicator.startAnimating()
+        
+        API.getTopRatedMovies(page: page) { results in
+            DispatchQueue.main.async {
+                self.movies?.append(contentsOf: results)
+                self.activityIndicator.stopAnimating()
+                self.selection = "topRated"
+                // check if this was the last of the data
+                if self.movies!.count < 20 {
+                    self.reachedEndOfItems = true
+                    print("reached end of data. Batch count: \(self.movies!.count)")
+                }
+                
+                // add the page for the next data query
+                self.page += 1
+                
+                self.browserCollectionView.reloadData()
+            }
         }
     }
     
@@ -96,21 +162,19 @@ class MoviesVC: UIViewController {
         let alert = UIAlertController(title: "Sort By", message: "", preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "Most Popular", style: .default , handler:{ (UIAlertAction)in
+            self.movies?.removeAll()
             self.fetchMostPopularMovies()
         }))
         
         alert.addAction(UIAlertAction(title: "Top Rated", style: .default , handler:{ (UIAlertAction)in
+            self.movies?.removeAll()
             self.fetchTopRated()
         }))
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
-            print("User click Dismiss button")
-        }))
-        
-        self.present(alert, animated: true, completion: {
-            print("completion block")
-        })
-        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+    
+            
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
@@ -165,6 +229,21 @@ extension MoviesVC:  UICollectionViewDelegate, UICollectionViewDelegateFlowLayou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == movies!.count - 1 {
+            switch selection {
+            case "now_playing":
+                fetchMovies()
+            case "popular":
+                fetchMostPopularMovies()
+            case "topRated":
+                fetchTopRated()
+            default:
+                fetchMovies()
+            }
+        }
     }
 }
 
