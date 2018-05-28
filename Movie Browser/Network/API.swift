@@ -13,7 +13,7 @@ class API {
     static let apiKey = "8b73bac921b846f18c66df6583d5e085"
     static let imageBaseStr = "https://image.tmdb.org/t/p/"
     static let baseUrlStr = "https://api.themoviedb.org/3/"
-    static let provider = MoyaProvider<MovieAPI>()
+    static let provider = MoyaProvider<MovieAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
     
     static func getMovies(page: Int, completion: @escaping (([Movie]) -> ())) {
         provider.request(.nowPlaying(page: page)) { result in
