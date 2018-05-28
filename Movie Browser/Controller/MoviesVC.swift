@@ -25,11 +25,25 @@ class MoviesVC: UIViewController {
     
     var selection = "now_playing"
     
+    var query = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupTapGesture()
         setupSearchBar()
         setupCollectionView()
         fetchMovies()
+    }
+    
+    func setupTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func fetchMovies() {
@@ -181,17 +195,19 @@ class MoviesVC: UIViewController {
 
 extension MoviesVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-       moviesOnSearch(searchText)
+       query = searchText
+        
+        if searchText == "" {
+            moviesOnSearch("")
+            
+        } else {
+            moviesOnSearch(query)
+        }
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = true
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = false
-        searchBar.text = ""
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        moviesOnSearch(searchBar.text!)
     }
 }
 
