@@ -199,7 +199,6 @@ extension MoviesVC: UISearchBarDelegate {
         
         if searchText == "" {
             moviesOnSearch("")
-            
         } else {
             moviesOnSearch(query)
         }

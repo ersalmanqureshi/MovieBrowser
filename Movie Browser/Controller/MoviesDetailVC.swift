@@ -37,7 +37,7 @@ class MoviesDetailVC: UIViewController {
         movieTitle.text = movie.title
         movieOverview.text = movie.overview
         movieRating.text = "Rating: " + String(ceil(Double(movie.rating)))
-        movieReleasedate.text = "Released Date: \(movie.releaseDate)"
+        movieReleasedate.text = "Released Date: \(FormatDate.format(date: movie.releaseDate))"
         
        
     }
